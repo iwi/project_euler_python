@@ -11,10 +11,7 @@
 
 # to check divisibility
 def is_divisible_by(n, divisor):
-  if n % divisor == 0:
-    return True
-  else :
-    return False 
+  return n % divisor == 0
 
 
 # main calculation
