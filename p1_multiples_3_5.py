@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Project Euler (projecteuler.net)
 #
 # Problem 1: Multiples of 3 and 5
@@ -33,5 +35,4 @@ for natural_number in xrange(1, max_integer) :
 # output
 print big_sum
 print 'The sum of all the multiples of 3 and/or 5 below ', max_integer, ' is ', big_sum        
-
 
