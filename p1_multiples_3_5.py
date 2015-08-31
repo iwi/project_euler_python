@@ -11,8 +11,7 @@
 
 # to check divisibility
 def is_divisible_by(n, divisor):
-  return n % divisor == 0
-
+  return n % divisor == 0:
 
 # main calculation
 
