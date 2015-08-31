@@ -27,5 +27,5 @@ while current < maxim :
   current = minus_one + minus_two
 
 if __name__ == "__main__":
-  print big_sum
+  print 'The sum of the even elements is: ', big_sum
     
