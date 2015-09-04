@@ -31,6 +31,14 @@ def is_prime(n) :
       f += 6
     return True
 
+
+# implementation of prime validation via regex is so slow that crashes!!
+import re
+
+def is_prime_new(n) :
+  to_match = "1" * n
+  return ( re.match( r'^1?$|^(11+?)\1+$', to_match ) == None )
+
 def is_factor(n, m) :
   integer_division = m / n
   float_division = float( m ) / n
