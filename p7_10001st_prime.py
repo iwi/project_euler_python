@@ -11,7 +11,6 @@ from p3_largest_prime_factor import is_prime
 
 if __name__ == "__main__" :
   n = 10001
-  print "n: ", n
   prime_counter = 0
   test_int = 1
   while prime_counter < n :
