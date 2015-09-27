@@ -28,7 +28,7 @@ def is_prime(n) :
         return False
       elif n % ( f + 2 ) == 0 :
         return False
-      f += 6
+      f += 2 
     return True
 
 
