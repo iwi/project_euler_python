@@ -16,22 +16,23 @@
 from math import sqrt 
 
 def is_integer( n ) :
-  return int( c ) == c
+    return int( c ) == c
 
 def is_pythagorean( x, y, z ) :
- return x**2 + y**2 == z**2
+   return x**2 + y**2 == z**2
 
 if __name__ == "__main__" :
-  total = 1000
-  for a in xrange( 3, total - 9 ) :
-    for b in xrange( a + 1, total - 9 - a - 1 ) :
-      c = sqrt( a**2 + b**2 )
-      if is_integer( c ) and c == ( total - a - b ) :
-        if is_pythagorean( a, b, c ) :
-          c = int( c )
-          product = a * b * c
-          print 'a:', a
-          print 'b:', b
-          print 'c:', c
-          print 'the product abc is', product
+    total = 1000
+    for a in xrange( 3, total - 9 ) :
+        for b in xrange( a + 1, total - 9 - a - 1 ) :
+            c = sqrt( a**2 + b**2 )
+            if is_integer( c ) and c == ( total - a - b ) :
+                if is_pythagorean( a, b, c ) :
+                    c = int( c )
+                    product = a * b * c
+                    print 'a:', a
+                    print 'b:', b
+                    print 'c:', c
+                    print 'the product abc is', product
+
 
