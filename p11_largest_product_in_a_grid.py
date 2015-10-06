@@ -35,16 +35,6 @@
 
 import numpy as nu
 
-# The number to read is expected to be in a file and can be split into multiple lines.
-# def read_numbers_square( filepath ) :
-#  f = open( filepath, 'r')
-#  lines = []
-#  for line in f :
-#    lines.append( line.rstrip( '\n' ) )
-#
-#  return lines
-
-
 def prod_diagonal_up( row, column, matrix ) :
     i = row
     j = column
@@ -82,6 +72,9 @@ def prod_vertical( row, column, matrix ) :
         product = matrix[ i, j ] * product
         i += 1
     return product
+
+# The number to read is expected to be in a file and can be split into multiple lines.
+# def read_numbers_square( filepath ) :
 
 def read_matrix( path, n, m ) :
     all_numbers = nu.fromfile( path, dtype= int, count= -1, sep= " ")
