@@ -31,11 +31,15 @@ from math import sqrt
 from p03_largest_prime_factor import is_factor
 
 def count_factors( x ) :
-    counter = 0
-    for element in xrange( 1, int( round( sqrt( x ) ) ) ) :
-        if is_factor( element, x ) :
-            counter += 1
-    return counter
+    if x == 1 :
+        counter = 0
+    else :
+        counter = 0 
+        for element in xrange( 1, int( x / 2 ) + 1 ) :
+            print element
+            if is_factor( element, x ) :
+                counter += 1
+    return counter + 1  # The +1 is to count itself
 
 def triangular_of( n ) :
     triangular_n = 0
@@ -44,13 +48,15 @@ def triangular_of( n ) :
     return triangular_n
 
 if __name__ == "__main__" :
-    n = 500
-    number = 100000
-    triangular_number = triangular_of( number ) 
-    factors_counter = count_factors( triangular_number)
-    while factors_counter < n :
+    min_number_of_divisors = 5 
+    ith = 1 
+    triangular_number = triangular_of( ith ) 
+    factors_counter = count_factors( triangular_number )
+    print "number of factors =", factors_counter
+    while factors_counter < min_number_of_divisors :
         factors_counter = count_factors( triangular_number )
-        number += 1
-        triangular_number += number
-    print "The first triangular number with", n, "+ divisors is", triangular_number
+        ith += 1
+        triangular_number += ith
+        print "number of factors =", factors_counter
+    print "The first triangular number with", min_number_of_divisors, "+ divisors is", triangular_number
     print "It has", factors_counter, "divisors"
