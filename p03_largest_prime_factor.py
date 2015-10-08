@@ -40,9 +40,7 @@ def is_prime_new(n) :
   return ( re.match( r'^1?$|^(11+?)\1+$', to_match ) == None )
 
 def is_factor(n, m) :
-  integer_division = m / n
-  float_division = float( m ) / n
-  return integer_division == float_division
+  return ( m % n ) == 0
 
 def largest_prime_factor( m ) :
   f = int( m ** 0.5 )
