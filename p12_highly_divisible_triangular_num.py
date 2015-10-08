@@ -37,25 +37,20 @@ def count_factors( x ) :
             counter += 1
     return counter
 
-
-
-    return n_of_factors
-
 def triangular_of( n ) :
     triangular_n = 0
     for counter in xrange( 1, n + 1 ) :
         triangular_n += counter 
     return triangular_n
 
-
 if __name__ == "__main__" :
     n = 500
-    number = 1
+    number = 100000
     triangular_number = triangular_of( number ) 
     factors_counter = count_factors( triangular_number)
     while factors_counter < n :
         factors_counter = count_factors( triangular_number )
         number += 1
         triangular_number += number
-    print "The first triangular number with 500+ factors is", triangular_number
-    print "It has", factors_counter, "factors"
+    print "The first triangular number with", n, "+ divisors is", triangular_number
+    print "It has", factors_counter, "divisors"
