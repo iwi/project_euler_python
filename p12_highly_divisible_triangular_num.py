@@ -26,9 +26,9 @@
 # What is the value of the first triangle number to have over five hundred
 # divisors?
 
+import timeit as ti
 import numpy as na
 from math import sqrt
-from p03_largest_prime_factor import is_factor
 
 def count_factors( x ) :
     if x == 1 :
@@ -36,27 +36,29 @@ def count_factors( x ) :
     else :
         counter = 0 
         for element in xrange( 1, int( x / 2 ) + 1 ) :
-            print element
-            if is_factor( element, x ) :
+            if x % element == 0 :
                 counter += 1
     return counter + 1  # The +1 is to count itself
 
 def triangular_of( n ) :
-    triangular_n = 0
-    for counter in xrange( 1, n + 1 ) :
-        triangular_n += counter 
-    return triangular_n
+    return ( 1 + n ) * n / 2 
 
 if __name__ == "__main__" :
-    min_number_of_divisors = 5 
-    ith = 1 
+    min_number_of_divisors = 500 
+    max_divisors = 1
+    ith = 100 # 10378 
     triangular_number = triangular_of( ith ) 
     factors_counter = count_factors( triangular_number )
-    print "number of factors =", factors_counter
     while factors_counter < min_number_of_divisors :
-        factors_counter = count_factors( triangular_number )
+        start = ti.default_timer()
         ith += 1
+        print "ith", ith
         triangular_number += ith
+        print "triangular number=", triangular_number
+        factors_counter = count_factors( triangular_number )
         print "number of factors =", factors_counter
+        max_divisors = max( max_divisors, factors_counter ) 
+        print "the maximum number of factors so far is", max_divisors 
+        print (ti.default_timer() - start )
     print "The first triangular number with", min_number_of_divisors, "+ divisors is", triangular_number
     print "It has", factors_counter, "divisors"
