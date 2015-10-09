@@ -34,20 +34,44 @@ def count_factors( x ) :
     if x == 1 :
         counter = 0
     else :
-        counter = 0 
+        counter = 0
         for element in xrange( 1, int( x / 2 ) + 1 ) :
             if x % element == 0 :
                 counter += 1
     return counter + 1  # The +1 is to count itself
 
+
+##### adapted from
+# http://www.tech-thoughts-blog.com/2012/08/1-introduction-in-this-article-i-will.html
+def count_factors_best( x ) :
+    pfd = Counter( x )
+    counter = reduce( lambda x,y: x ** y, sum) 
+
+# find prime factors of a number
+def prime_factors(x):
+    factorlist = []
+    loop = 2
+    while loop <= x :
+        if x % loop == 0 :
+            x /= loop
+            factorlist.append( loop )
+        else :
+            loop += 1
+    return factorlist
+
+#####
+
+def ends_with_00( x ) :
+    return x % 100 == 0
+
 def triangular_of( n ) :
-    return ( 1 + n ) * n / 2 
+    return ( 1 + n ) * n / 2
 
 if __name__ == "__main__" :
-    min_number_of_divisors = 500 
+    min_number_of_divisors = 500
     max_divisors = 1
-    ith = 100 # 10378 
-    triangular_number = triangular_of( ith ) 
+    ith = 11209 
+    triangular_number = triangular_of( ith )
     factors_counter = count_factors( triangular_number )
     while factors_counter < min_number_of_divisors :
         start = ti.default_timer()
@@ -55,10 +79,11 @@ if __name__ == "__main__" :
         print "ith", ith
         triangular_number += ith
         print "triangular number=", triangular_number
-        factors_counter = count_factors( triangular_number )
-        print "number of factors =", factors_counter
-        max_divisors = max( max_divisors, factors_counter ) 
-        print "the maximum number of factors so far is", max_divisors 
+        if ends_with_00( triangular_number ) :
+            factors_counter = count_factors( triangular_number )
+            print "number of factors =", factors_counter
+            max_divisors = max( max_divisors, factors_counter )
+            print "the maximum number of factors so far is", max_divisors
         print (ti.default_timer() - start )
     print "The first triangular number with", min_number_of_divisors, "+ divisors is", triangular_number
     print "It has", factors_counter, "divisors"
