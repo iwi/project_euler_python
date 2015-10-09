@@ -70,7 +70,7 @@ def triangular_of( n ) :
 if __name__ == "__main__" :
     min_number_of_divisors = 500
     max_divisors = 1
-    ith = 11209 
+    ith = 1 
     triangular_number = triangular_of( ith )
     factors_counter = count_factors( triangular_number )
     while factors_counter < min_number_of_divisors :
