@@ -55,7 +55,7 @@ def partition_13( array ) :
 
 
 if __name__ == "__main__" :
-  array = read_number( "/home/iwi/projectes/project_euler/p8_numbers")
+  array = read_number( "/home/iwi/projectes/project_euler/p08_numbers")
   partitioned = partition_13( array )
   products = map( lambda element: reduce( lambda x,y: int( x ) * int( y ), element ), partitioned )
   maximum = reduce( lambda x,y: max( x, y ), products )
