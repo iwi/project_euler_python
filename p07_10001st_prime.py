@@ -7,7 +7,7 @@
 # that the 6th prime is 13.
 # What is the 10,001st prime number?
 
-from p3_largest_prime_factor import is_prime
+from p03_largest_prime_factor import is_prime
 
 if __name__ == "__main__" :
   n = 10001
